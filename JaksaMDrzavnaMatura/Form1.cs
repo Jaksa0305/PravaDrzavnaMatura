@@ -161,7 +161,7 @@ namespace JaksaMDrzavnaMatura
             }
             else if (comboBox5.SelectedIndex == 2)
             {
-
+                comboBox6.DataSource = Liste.umetnicka;
             }
         }
 
@@ -370,6 +370,13 @@ namespace JaksaMDrzavnaMatura
             {
                 MessageBox.Show("Greška: " + ex.Message);
             }
+
+
+            OsveziSveListe();
+
+
+
+
         }
 
 
@@ -491,7 +498,88 @@ namespace JaksaMDrzavnaMatura
             }
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // 1. Provera da li je učenik uopšte izabran za izmenu
+            if (comboBox8.SelectedItem == null)
+            {
+                MessageBox.Show("Molimo vas prvo izaberite učenika iz liste za izmenu!");
+                return;
+            }
 
+            string izabraniText = comboBox8.SelectedItem.ToString();
+            string putanjaPrijave = "matura.csv";
+
+            if (!File.Exists(putanjaPrijave)) return;
+
+            try
+            {
+                // 2. Učitavamo sve redove iz fajla
+                List<string> sviRedovi = File.ReadAllLines(putanjaPrijave, Encoding.UTF8).ToList();
+                bool nadjen = false;
+
+                // 3. Prolazimo kroz redove (preskačemo zaglavlje i=1)
+                for (int i = 1; i < sviRedovi.Count; i++)
+                {
+                    string[] d = sviRedovi[i].Split(';');
+                    if (d.Length >= 3)
+                    {
+                        // Formiramo isti ključ po kom smo ga tražili u comboBox8
+                        string formatZaProveru = $"{d[0].Trim()} {d[1].Trim()} ({d[2].Trim()})";
+
+                        if (formatZaProveru == izabraniText)
+                        {
+                            // 4. Formiramo NOVI red sa podacima koji su trenutno u poljima na formi
+                            string azuriranRed = string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8}",
+                                textBox1.Text, // Ime
+                                textBox3.Text, // Prezime
+                                textBox2.Text, // Odeljenje/JMBG
+                                comboBox1.Text, // Skola
+                                comboBox5.Text, // Tip DM
+                                comboBox4.Text, // Jezik
+                                comboBox3.Text, // P1
+                                comboBox2.Text, // P2
+                                comboBox6.Text  // P3
+                            );
+
+                            // Zamenjujemo stari red novim
+                            sviRedovi[i] = azuriranRed;
+                            nadjen = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (nadjen)
+                {
+                    // 5. Upisujemo sve nazad u fajl (File.WriteAllLines prebriše ceo fajl)
+                    File.WriteAllLines(putanjaPrijave, sviRedovi, Encoding.UTF8);
+
+                    MessageBox.Show("Podaci o učeniku su uspešno izmenjeni!");
+
+                    // 6. Osvežavamo listu u ComboBox8 jer su se podaci možda promenili
+                    OsveziSveListe();
+                }
+                else
+                {
+                    MessageBox.Show("Učenik nije pronađen u bazi.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Greška pri izmeni: " + ex.Message);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
     

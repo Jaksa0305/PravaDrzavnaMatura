@@ -125,5 +125,12 @@ namespace JaksaMDrzavnaMatura
         };
 
 
+
+        public static List<string> umetnicka = new List<string>
+        {
+            "Solfeđo i harmonija"
+        };
+
+
     }
 }

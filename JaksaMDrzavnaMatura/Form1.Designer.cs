@@ -40,7 +40,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -52,7 +51,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.imetp = new System.Windows.Forms.TextBox();
@@ -149,7 +147,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button1.Location = new System.Drawing.Point(268, 257);
+            this.button1.Location = new System.Drawing.Point(495, 257);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 53);
             this.button1.TabIndex = 10;
@@ -177,16 +175,6 @@
             this.button3.Text = ">";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button4.Location = new System.Drawing.Point(465, 257);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 53);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Unesi ucenika";
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
@@ -283,16 +271,6 @@
             this.comboBox7.TabIndex = 25;
             this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button6.Location = new System.Drawing.Point(670, 257);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(125, 53);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "Obrisi";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -321,12 +299,13 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button7.Location = new System.Drawing.Point(848, 257);
+            this.button7.Location = new System.Drawing.Point(672, 257);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(125, 53);
             this.button7.TabIndex = 30;
             this.button7.Text = "izmeni";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label3
             // 
@@ -358,7 +337,6 @@
             this.Controls.Add(this.imetp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.comboBox7);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -370,7 +348,6 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -405,7 +382,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -417,7 +393,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox imetp;
